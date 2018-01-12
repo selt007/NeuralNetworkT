@@ -10,31 +10,8 @@ namespace NNT
             Formula meth;
             meth = new Formula();
 
-            Console.Clear();
-
-            //double w1 = 0.45, w2 = 0.78,
-            //    w3 = -0.12, w4 = 0.13,
-            //    w5 = 1.5, w6 = -2.3,
-            //    result = 0, error = 0, ideal = 1,
-            //    Do, Dh1, Dh2, GRADw5, GRADw6;
-
-            //const double E = 0.7, A = 0.3;
-
-            //double[] Dw5;
-            //double[] Dw6;
-
-            //int I1 = 1, I2 = 0;
-
-            //double h1 = Math.Round(
-            //    meth.Sigmoid(meth.InOut(
-            //        w1, w3, I1, I2)), 2);
-
-            //double h2 = Math.Round(
-            //    meth.Sigmoid(meth.InOut(
-            //        w2, w4, I1, I2)), 2);
-
             double result = 0, error = 0, ideal = 1;
-            int maxEpoch = 1, trainSet = 20;
+            int maxEpoch = 1, trainSet = 4;
             double[] w13 = new double[] { 0, 0, 0.45, -0.12 };
             double[] w24 = new double[] { 0, 0, 0.78, 0.13 };
             double[] w56 = new double[] { 0, 0, 1.5, -2.3 };
@@ -44,7 +21,7 @@ namespace NNT
             double[] Dw4 = new double[] { 0, 0 };
             double[] Dw5 = new double[] { 0, 0 };
             double[] Dw6 = new double[] { 0, 0 };
-            const double E = 0.7, A = 0.3;
+            const double E = 0.9, A = 0.3;
             int[] I12 = new int[] { 1, 0 };
             double Do, Dh1, Dh2, 
                 GRADw5, GRADw6,
@@ -101,13 +78,17 @@ namespace NNT
                     w24[3] += Dw4[1];
                 }
 
+                Console.WriteLine("-------------");
                 Console.WriteLine("Step " + i);
+                Console.WriteLine("--------------------------------------------------------------------");
+                Console.WriteLine("Constats Exponent (speed learning) = " + E + ", Alfa (moment) = " + A);
+                Console.WriteLine("Input data: I1 = " + I12[0] + ", I2 = " + I12[1]);
+                Console.WriteLine("--------------------------------------------------------------------");
+                Console.WriteLine("Result - " + result + " , ");
+                Console.WriteLine("Error - " + error + " .  ");
                 Console.WriteLine("-----------------");
-                Console.WriteLine("Result - " + result + " , |");
-                Console.WriteLine("Error - " + error + " .  |");
-                Console.WriteLine("----------------- ");
 
-                Thread.Sleep(250);
+                Thread.Sleep(100);
 
                 if (error == 0) break;
                 else { maxEpoch++; Console.Clear(); }

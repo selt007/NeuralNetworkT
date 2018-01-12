@@ -11,15 +11,6 @@ namespace NNT
             return y;
         }
 
-        public double InOutOld(double w1, double w2, int I1, int I2)
-        {
-            double Out = 0;
-
-            Out = w1 * I1 + w2 * I2;
-
-            return Out;
-        }
-
         public double InOut(double[] w, int[] input)
         {
             double Out = 0;
