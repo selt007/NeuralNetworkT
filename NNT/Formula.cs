@@ -11,11 +11,20 @@ namespace NNT
             return y;
         }
 
+        public double InOutOld(double w1, double w2, int I1, int I2)
+        {
+            double Out = 0;
+
+            Out = w1 * I1 + w2 * I2;
+
+            return Out;
+        }
+
         public double InOut(double[] w, int[] input)
         {
             double Out = 0;
 
-            for (int i = 0; i < input.Length; i++)
+            for (int i = 2; i < input.Length; i++)
             { 
                 Out += input[i] * w[i];
             }
@@ -27,7 +36,7 @@ namespace NNT
         {
             double Out = 0;
 
-            for (int i = 0; i < w.Length; i++)
+            for (int i = 2; i < w.Length; i++)
             {
                 Out += arr[i] * w[i];
             }
