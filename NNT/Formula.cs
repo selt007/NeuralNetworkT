@@ -11,7 +11,7 @@ namespace NNT
             return y;
         }
 
-        public double InOut(double[] w, int[] input)
+        public double Out(double[] w, double[] input)
         {
             double Out = 0;
 
@@ -19,27 +19,6 @@ namespace NNT
             { 
                 Out += input[i] * w[i];
             }
-
-            return Out;
-        }
-
-        public double HideOut(double[] arr, double[] w)
-        {
-            double Out = 0;
-
-            for (int i = 2; i < w.Length; i++)
-            {
-                Out += arr[i] * w[i];
-            }
-
-            return Out;
-        }
-
-        public double HideError()
-        {
-            double Out = 0;
-
-
 
             return Out;
         }

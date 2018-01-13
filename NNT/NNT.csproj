@@ -3,7 +3,9 @@
   <PropertyGroup>
     <OutputType>Exe</OutputType>
     <TargetFramework>netcoreapp2.0</TargetFramework>
+    <RuntimeIdentifiers>win10-x64</RuntimeIdentifiers>
     <Platforms>AnyCPU;x64</Platforms>
+    <StartupObject />
   </PropertyGroup>
 
 </Project>

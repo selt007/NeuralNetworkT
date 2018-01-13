@@ -21,8 +21,8 @@ namespace NNT
             double[] Dw4 = new double[] { 0, 0 };
             double[] Dw5 = new double[] { 0, 0 };
             double[] Dw6 = new double[] { 0, 0 };
-            const double E = 0.9, A = 0.3;
-            int[] I12 = new int[] { 1, 0 };
+            double[] I12 = new double[] { 1, 0 };
+            const double E = 0.7, A = 0.3;
             double Do, Dh1, Dh2, 
                 GRADw5, GRADw6,
                 GRADw1, GRADw2,
@@ -31,19 +31,19 @@ namespace NNT
             for (int i = 0; i < maxEpoch;i++)
             {
                 double h1 = Math.Round(
-                    meth.Sigmoid(meth.InOut(
+                    meth.Sigmoid(meth.Out(
                         w13, I12)), 2);
 
                 double h2 = Math.Round(
-                    meth.Sigmoid(meth.InOut(
+                    meth.Sigmoid(meth.Out(
                         w24, I12)), 2);
 
                 double[] arr = new double[] { 0, 0, h1, h2 };
 
                 result = Math.Round(
                     meth.Sigmoid(
-                        meth.HideOut(arr, w56)),
-                    2);
+                        meth.Out(arr, w56)), 2);
+
                 error = Math.Round(
                     Math.Pow(
                         (1 - result), 2), 2);
